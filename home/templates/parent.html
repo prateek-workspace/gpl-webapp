@@ -40,7 +40,7 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="#">Home</a></li>
+          <li><a class="nav-link scrollto active" href="{% url 'home:index' %}">Home</a></li>
           <li><a class="nav-link scrollto" href="#">About Us</a></li>
           <li><a class="nav-link scrollto" href="#">Registration</a></li>
           <li class="dropdown"><a href="#"><span>Services</span> <i class="bi bi-chevron-down"></i></a>
@@ -77,29 +77,13 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="#" class="get-started-btn scrollto">Login</a>
+      <a href="{% url 'home:login' %}" class="get-started-btn scrollto">Login</a>
     </div>
   </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
+{% block main %}
 
-    <div class="container" data-aos="zoom-out" data-aos-delay="100">
-      <div class="row">
-        <div class="col-xl-6">
-          <h1>Build Your better <br> future with us</h1>
-          <h2>An Institution to sharpen your skills and knowledge, <br> making you job ready</h2>
-          <a href="#" class="btn-get-started scrollto">Let's Start</a>
-        </div>
-      </div>
-    </div>
-
-  </section><!-- End Hero -->
-
-  <main id="main">
-
-
-  </main>
+{% endblock main %}
 
   <!-- End #main -->
 
