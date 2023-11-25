@@ -10,3 +10,6 @@ def login(request):
 
 def contactus(request):
     return render(request,"contactus.html")
+
+def registration(request):
+    return render(request,"registration.html")

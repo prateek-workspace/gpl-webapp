@@ -1,50 +1,81 @@
-{% extends "parent.html" %}
+{% extends "parent.html"%}
 {% block main %}
-<main id="main">
-<!-- ======= Blog Single Section ======= -->
-    <section id="blog" class="blog" style="margin: 70px;">
-      <div class="container" data-aos="fade-up" style="margin-left: 20%;">
+  <script>
+      function validate()
+      {
+         var userid=document.getElementById("userid");
+         var password=document.getElementById("password");
+         if (userid.value=="" || userid.value==null)
+         {
+           alert('Please Enter UserId');
+           userid.focus();
+         }
+         else if (password.value=="" || password.value==null)
+         {
+          alert('Please Enter Password');
+          password.focus();
+         }
+         else
+         {
+          document.getElementById("frmlogin").submit();
+         }
+      }
+  
+  </script>
+
+<section id="blog" class="blog" style="margin: 100px;">
+      <div class="container" data-aos="fade-up">
 
         <div class="row">
+          <div class="blog-comments">
 
-          <div class="col-lg-8 entries">
-            <div class="blog-comments">
+            <div class="reply-form">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{message}}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+                {% endif %}
 
-              <div class="reply-form">
-                <h4>Leave a Reply</h4>
-                <p>Your email address will not be published. Required fields are marked * </p>
-                <form action="">
-                  <div class="row">
-                    <div class="col-md-6 form-group">
-                      <input name="name" type="text" class="form-control" placeholder="Your Name*">
-                    </div>
-                    <div class="col-md-6 form-group">
-                      <input name="email" type="text" class="form-control" placeholder="Your Email*">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col form-group">
-                      <input name="website" type="text" class="form-control" placeholder="Your Website">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col form-group">
-                      <textarea name="comment" class="form-control" placeholder="Your Comment*"></textarea>
-                    </div>
-                  </div>
-                  <button type="submit" class="btn btn-primary">Post Comment</button>
+                <h1 style="text-align: center;">Login Here</h1>
+                <div class="login-div">
 
-                </form>
+                    <form class="login-form" id="frmlogin" onsubmit="event.preventDefault();validate();" method="post" action="{% url 'home:login' %}" >
+                        {% csrf_token%}
+                    <table class="table table-bordered">
+                    <tr>
+                        <td>UserID/RollNo</td>
+                        <td><input type="text" name="userid" id="userid" class="form-control"/></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input type="password" name="password" id="password" class="form-control"/></td>
+                    </tr>
+                    <tr>
+                        <td>User Type</td>
+                        <td><select class="form-control" name="usertype">
+                            <option selected>--Select User Type--</option>
+                            <option value="student">Student</option>
+                            <option value="admin">Administrator</option>
 
-              </div>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-outline-success">Login</button></td>
+                    </tr>
+                    </table>
+                    </form>
+                </div>
+            </div>
 
-            </div><!-- End sidebar -->
-
-          </div><!-- End blog sidebar -->
+          </div>
 
         </div>
 
       </div>
-    </section><!-- End Blog Single Section -->
-</main>
+</section>
+    
 {% endblock main %}
