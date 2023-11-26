@@ -7,13 +7,13 @@ from django.contrib import messages
 from adminapp.models import *
 
 # Create your views here.
-@cache_control(no_cache=True,must_revalidate=True,no_store=True)
+# @cache_control(no_cache=True,must_revalidate=True,no_store=True)
 def studenthome(request):
     try:
         if request.session['rollno']!=None:
             rollno=request.session['rollno']
             stu=Student.objects.get(rollno=rollno)
-            return render(request,"studenthome.html",{'stu':stu})
+            return render(request,"viewprofile.html",{'stu':stu})
     except KeyError:
         return redirect('home:login')
 def studentlogout(request):
