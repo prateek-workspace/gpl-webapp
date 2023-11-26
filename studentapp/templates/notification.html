@@ -1,0 +1,32 @@
+{% extends "studentparent.html" %}
+{% block body %}
+    <div class="row">
+        <h1 style="text-align:center; color: black; font-family: cursive;">View Notification</h1> 
+        <div class="col-sm-12" style="overflow-x: scroll;">  
+              
+            <table class="table table-bordered text-light" style="margin: 25px; padding: 50px; font-family: cursive; font-weight: 300;">
+                <tr style="color: gold; font-size: 1.2rem;">
+
+                    <th>S.R. No.</th>
+                    <th>Subject</th>
+                    <th>Details</th>
+
+                </tr>
+
+                {% for n in ne %}
+
+                    <tr style="color: black;">
+
+                        <td>{{forloop.counter}}</td>
+                        <td>{{n.subject}}</td>
+                        <td>{{n.details}}</td>
+                    
+                    </tr>
+
+                {% endfor %}
+
+            </table>
+
+        </div>
+    </div>
+{% endblock body %}
