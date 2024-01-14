@@ -9,7 +9,7 @@ You can visit the live website at [Click Here](https://adarsh.pythonanywhere.com
 ## 📸 Screenshots 📸
 Here are some screenshots of our web application. They'll give you a glimpse of what to expect when you visit our website. 🖼️
 
-(Note: Replace this text with actual screenshots of your web application)
+()
 
 ## 💻 Installation 💻
 
