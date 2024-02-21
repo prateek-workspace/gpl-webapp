@@ -78,4 +78,5 @@ def parent(request):
 def courses(request):
     return render(request,"courses.html")
 
-
+def aboutus(request):
+    return render(request,"aboutus.html")

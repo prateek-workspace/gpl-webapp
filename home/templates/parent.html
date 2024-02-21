@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{% static 'home/assets/img/favicon.png' %}"> 
-  <link href="{% static 'home/assets/img/favicon.png' %}" rel="apple-touch-icon">
+  <!-- <link href="{% static 'home/assets/img/favicon.png' %}"> 
+  <link href="{% static 'home/assets/img/favicon.png' %}" rel="apple-touch-icon"> -->
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -41,16 +41,25 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="{% url 'home:index' %}">Home</a></li>
-          <li><a class="nav-link scrollto" href="#">About Us</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#">About Us</a></li> -->
+          <li><a class="nav-link scrollto" href="{% url 'home:aboutus' %}">Aboutus</a></li>
           <li><a class="nav-link scrollto" href="{% url 'home:registration' %}">Registration</a></li>
+          <!-- <li class="dropdown"><a href="#"><span>Quick Links</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="https://result.bteevaluation.co.in/">Results</a></li>
+              <li><a href="https://bteup.ac.in/webapp/Courses.aspx?type=main">Courses</a></li>
+              <li><a href="https://bteup.ac.in/webapp/Syllabus.aspx?type=16">Syllabus</a></li>
+              <li><a href="https://jeecup.admissions.nic.in">Admission</a></li>
+              <li><a href="#">Placements</a></li>
+            </ul>
+          </li> -->
           <li class="dropdown"><a href="#"><span>Services</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li class="dropdown"><a href="#"><span>Students</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="#">Feedback</a></li>
-                  <li><a href="#">Anti Ragging</a></li>
-                  <li><a href="#">Complaints</a></li>
-                  <li><a href="#">Testimonials</a></li>
+                  <li><a href="{% url 'home:login' %}">Feedback</a></li>
+                  <li><a href="https://urise.up.gov.in/frontend/Homepage/grievanceStudent/">Anti Ragging</a></li>
+                  <li><a href="{% url 'home:login' %}">Complaints</a></li>
                 </ul>
               </li>
               <li class="dropdown"><a href="#"><span>Alumini</span> <i class="bi bi-chevron-right"></i></a>
@@ -60,7 +69,15 @@
                   <li><a href="#">Alumini Directory</a></li>
                 </ul>
               </li>
-              <li class="dropdown"><a href="#"><span>Quick Links</span><i class="bi bi-chevron-right"></i></a>
+              <li class="dropdown"><a href="#"><span>General</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="https://result.bteevaluation.co.in/">Results</a></li>
+                  <li><a href="https://bteup.ac.in/webapp/Courses.aspx?type=main">Courses</a></li>
+                  <li><a href="https://bteup.ac.in/webapp/Syllabus.aspx?type=16">Syllabus</a></li>
+                  <li><a href="https://jeecup.admissions.nic.in">Admission</a></li>
+                </ul>
+              </li>
+              <!-- <li class="dropdown"><a href="#"><span>Quick Links</span><i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="#">Notices</a></li>
                   <li><a href="#">Results</a></li>
@@ -69,7 +86,7 @@
                   <li><a href="#">Admission</a></li>
                   <li><a href="#">Placements</a></li>
                 </ul>
-              </li>
+              </li> -->
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="{% url 'home:contactus' %}">Contact</a></li>
@@ -109,22 +126,22 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home:index' %}">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'home:index' %}">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://bteup.ac.in/webapp/staticcontent.aspx?type=termsandconditions">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://bteup.ac.in/webapp/staticcontent.aspx?type=privacypolicy">Privacy policy</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Quick Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Syllabus</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Courses</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Admissions</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">BTEUP Website</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">AICTE Website</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="https://bteup.ac.in/webapp/Courses.aspx?type=main">Courses</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="https://bteup.ac.in/webapp/Syllabus.aspx?type=16">Syllabus</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="https://jeecup.admissions.com">Admissions</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="https://bteup.ac.in/webapp/home.aspx">BTEUP Website</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="https://aicte-india.org">AICTE Website</a></li>
             </ul>
           </div>
 

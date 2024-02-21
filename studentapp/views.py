@@ -79,16 +79,6 @@ def postans(request):
             return redirect('studentapp:postquestion')
     except KeyError:
         return redirect('home:login')
-@cache_control(no_cache=True,must_revalidate=True,no_store=True)
-def viewanswer(request,qid):
-    try:
-        if request.session['rollno']!=None:
-            rollno=request.session['rollno']
-            stu=Student.objects.get(rollno=rollno)
-            ans=Answer.objects.filter(qid=qid)
-            return render(request,"viewanswer.html",{'stu':stu,'ans':ans})
-    except KeyError:
-        return redirect('home:login')
 
 @cache_control(no_cache=True,must_revalidate=True,no_store=True)
 def changepassword(request):
@@ -143,7 +133,19 @@ def notification(request):
     try:
         if request.session['rollno']!=None:
             rollno=request.session['rollno']
+            stu=Student.objects.get(rollno=rollno)
             ne=news.objects.all()
-            return render(request,"notification.html",locals())
+            return render(request,"notification.html",locals(), {'stu':stu})
+    except KeyError:
+        return redirect('home:login')
+
+@cache_control(no_cache=True,must_revalidate=True,no_store=True)
+def viewanswer(request,qid):
+    try:
+        if request.session['rollno']!=None:
+            rollno=request.session['rollno']
+            stu=Student.objects.get(rollno=rollno)
+            ans=Answer.objects.filter(qid=qid)
+            return render(request,"viewanswer.html",{'stu':stu,'ans':ans})
     except KeyError:
         return redirect('home:login')
